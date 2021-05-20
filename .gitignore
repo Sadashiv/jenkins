@@ -18,4 +18,5 @@ updates/
 userContent/
 var/
 war/
+logs/*
 
