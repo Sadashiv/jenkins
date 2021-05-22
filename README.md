@@ -10,6 +10,7 @@ Prerequiste: Install jdk/jre 1.8
    XML Job to Job DSL(Convert normal job to DSL code)
 
 api to access: http://127.0.0.1:8888/plugin/job-dsl/api-viewer/index.html
+Jenkins job api for each xml tag or activity: https://jenkinsci.github.io/job-dsl-plugin/
 
 
 Create jenkins slave with private key
@@ -18,8 +19,6 @@ Manage Jenkins -> Manage Credentials -> Create new credentials and during slave 
 ###################################
 sun.java.command
 ======================================================
-
-
 Deleting the objects
 
 ls .git/objects/pack/

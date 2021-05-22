@@ -24,10 +24,10 @@ fi
 /usr/bin/java -jar $SCRIPTPATH/downloads/$JENKINS_LTS_VERSION/jenkins.war --httpPort=$JENKINS_PORT --logfile=$SCRIPTPATH/jenkins.log --daemon > /dev/null
 if [ $? -ne 0 ];
 then
-   echo "****************************************************"
-   echo "ERROR: Jenkins failed to start"
-   echo "Please look in issue $SCRIPTPATH/jenkins.log"
-   echo "****************************************************"
+   echo "************************************************************"
+   echo "ERROR: Jenkins LTS version $JENKINS_LTS_VERSION failed to start"
+   echo "Please look in issue ==> $SCRIPTPATH/jenkins.log"
+   echo "************************************************************"
    exit 1
 else
    echo "****************************************************"
