@@ -14,6 +14,7 @@ job(jobName) {
       scm('*/15 * * * *')
   }
   steps {
-      shell('mvn clean install')
+//      shell('mvn clean install')
+      maven('-e clean install')
   }
 }
