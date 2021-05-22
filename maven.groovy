@@ -1,5 +1,5 @@
-def owner = 'mesosphere'
-def project = 'jenkins-mesos'
+def owner = 'sadashiv'
+def project = 'maven'
 def jobName = "${owner}-${project}".replaceAll('/','-')
 job(jobName) {
   scm {
