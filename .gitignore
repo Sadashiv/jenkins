@@ -5,7 +5,6 @@ usr/*
 *.xml
 *.key
 .installed.cfg
-Python-2.6.8.tar.bz2
 bin/
 dummyshop/
 eggs/
@@ -19,4 +18,13 @@ userContent/
 var/
 war/
 logs/*
+jenkins.log
+.lastStarted
+failed-boot-attempts.txt
+identity.key.enc
+jenkins.install.InstallUtil.lastExecVersion
+jenkins.install.UpgradeWizard.state
+secret.key.not-so-secret
+secrets/
+workspace/
 

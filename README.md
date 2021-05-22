@@ -1,25 +1,19 @@
 Jenkins Installation
 ====================
 
-Prereuest
+Prerequiste: Install jdk/jre 1.8
 
-a.libreadline-dev
-b.zlib1g-dev
-c.libbz2-dev
-d.libssl-dev
+1. Jenkins should be running
 
-1.Jenkins will be installed through the buildout.
-  Python should be installed if python>2.6 it's better
+2. Install plugin
+   Job DSL
+   XML Job to Job DSL(Convert normal job to DSL code)
 
-2.Python installation through th shell script.
-  ./installpython.sh -s
-
-3.To install buildout use bootstrap.py with python
-  python bootstrap.py
-
-4.Run buildout
+api to access: http://127.0.0.1:8888/plugin/job-dsl/api-viewer/index.html
 
 
+Create jenkins slave with private key
+Manage Jenkins -> Manage Credentials -> Create new credentials and during slave creation use this credential
 
 ###################################
 sun.java.command
