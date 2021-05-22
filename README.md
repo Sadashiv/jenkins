@@ -16,6 +16,9 @@ Jenkins job api for each xml tag or activity: https://jenkinsci.github.io/job-ds
 Create jenkins slave with private key
 Manage Jenkins -> Manage Credentials -> Create new credentials and during slave creation use this credential
 
+sudo cp jenkins.service /lib/systemd/system/
+sudo systemctl enable jenkins.service
+
 ###################################
 sun.java.command
 ======================================================

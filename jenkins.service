@@ -1,0 +1,10 @@
+[Unit]
+Description=Jenkins master
+
+[Service]
+User=sadashiv
+ExecStart=/home/sadashiv/jenkins/start_jenkins.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
