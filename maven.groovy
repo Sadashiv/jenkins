@@ -1,25 +1,25 @@
-// MyProject-Build.groovy
-
-def gitUrl = "https://github.com/jleetutorial/maven-project"
-
-job("MyProject-Build") {
-    description "Builds MyProject from master branch."
-    parameters {
-        stringParam('COMMIT', 'HEAD', 'Commit to build')
-    }
+def owner = 'mesosphere'
+def project = 'jenkins-mesos'
+def branchApi = new URL("https://api.github.com/repos/${owner}/${project}/branches")
+def branches = new groovy.json.JsonSlurper().parse(branchApi.newReader())
+branches.each {
+  def branchName = it.name
+  def jobName = "${owner}-${project}-${branchName}".replaceAll('/','-')
+  job(jobName) {
     scm {
         git {
             remote {
-                url gitUrl.
-                branch "master"
+              github("${owner}/${project}")
             }
-            extensions {
-                wipeOutWorkspace()
-                localBranch master
-            }
+            branch("${branchName}")
+            createTag(false)
         }
     }
-    steps {
-        shell "Look: I'm building master!"
+    triggers {
+        scm('*/15 * * * *')
     }
+    steps {
+        shell('ls -l')
+    }
+  }
 }
