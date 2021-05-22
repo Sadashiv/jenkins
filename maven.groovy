@@ -7,7 +7,7 @@ job(jobName) {
           remote {
             github("${owner}/${project}")
           }
-          createTag(false)
+//          createTag(false)
       }
   }
   triggers {
