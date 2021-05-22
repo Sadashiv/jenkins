@@ -14,6 +14,6 @@ job(jobName) {
       scm('*/15 * * * *')
   }
   steps {
-      shell('ls -l')
+      shell('mvn clean install')
   }
 }
