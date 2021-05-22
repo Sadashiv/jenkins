@@ -18,6 +18,7 @@ Manage Jenkins -> Manage Credentials -> Create new credentials and during slave 
 
 sudo cp jenkins.service /lib/systemd/system/
 sudo systemctl enable jenkins.service
+sudo systemctl start jenkins.service
 
 ###################################
 sun.java.command
