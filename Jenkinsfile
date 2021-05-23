@@ -13,7 +13,7 @@ pipeline {
             }
         }
         stage('Deploy product'){
-            agent { label 'master' }
+            agent { label 'deploy_server' }
             steps {
             echo "Deploy product to desired server"
             }
