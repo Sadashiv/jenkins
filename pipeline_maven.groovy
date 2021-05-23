@@ -4,12 +4,11 @@ def jobName = "${owner}-${project}".replaceAll('/','-')
 
 pipelineJob(jobName) {
     definition {
-        cpsScm {
-            scm {
-                git('https://github.com/sadashiv/maven.git')
-            }
+        cps {
+            script(readFileFromWorkspace('Jenkinsfile'))
+            sandbox()
         }
-    }
+        }
 //  steps {
 //      shell('mvn clean install')
 //      maven('-e clean install')
