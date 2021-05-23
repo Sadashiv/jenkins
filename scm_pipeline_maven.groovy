@@ -13,7 +13,7 @@ pipelineJob(jobName) {
                     branch("jenkins")
                 }
             }
-            scriptPath("Jenkinsfile.status")
+            scriptPath("Jenkinsfile")
         }
     }
 }
