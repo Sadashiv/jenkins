@@ -1,4 +1,4 @@
-def owner = 'sadashiv_pipeline'
+def owner = 'sadashiv_pipeline_scm'
 def project = 'maven'
 def jobName = "${owner}-${project}".replaceAll('/','-')
 
