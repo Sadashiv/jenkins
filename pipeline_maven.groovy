@@ -6,7 +6,7 @@ pipelineJob(jobName) {
     definition {
         cpsScm {
             scm {
-                git('https://github.com/${owner}/${project}.git')
+                git('https://github.com/sadashiv/maven.git')
             }
         }
     }
