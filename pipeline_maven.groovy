@@ -4,12 +4,12 @@ def jobName = "${owner}-${project}".replaceAll('/','-')
 
 pipelineJob(jobName) {
     definition {
-//        cps {
-//            script(readFileFromWorkspace('Jenkinsfile'))
-//            sandbox()
-//        }
-
         cps {
+            script(readFileFromWorkspace('Jenkinsfile'))
+            sandbox()
+        }
+
+/*        cps {
         script('''
         pipeline {
     agent any 
@@ -44,7 +44,7 @@ pipelineJob(jobName) {
     }
 
 
-}''')
+}''')*/
     }
   }
 }
