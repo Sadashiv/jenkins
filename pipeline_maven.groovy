@@ -7,8 +7,7 @@ pipelineJob(jobName) {
         cps {
             script(readFileFromWorkspace('Jenkinsfile'))
             sandbox()
-        }
-
+//        }
 /*        cps {
         script('''
         pipeline {
