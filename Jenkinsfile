@@ -4,7 +4,7 @@ pipeline {
         stage('Maven Build'){
             steps {
             sh "git clone https://github.com/Sadashiv/maven"
-            sh "mvn clean install"
+            sh "cd maven && mvn clean install"
             }
         }
         stage('Deploy product'){
