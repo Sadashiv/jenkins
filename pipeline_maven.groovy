@@ -10,8 +10,8 @@ pipelineJob('jobName') {
             }
         }
     }
-  steps {
+//  steps {
 //      shell('mvn clean install')
-      maven('-e clean install')
-  }
+//      maven('-e clean install')
+//  }
 }
