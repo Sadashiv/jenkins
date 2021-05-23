@@ -1,8 +1,8 @@
-def owner = 'sadashiv'
-def project = 'maven_pipeline'
+def owner = 'sadashiv_pipeline'
+def project = 'maven'
 def jobName = "${owner}-${project}".replaceAll('/','-')
 
-pipelineJob('jobName') {
+pipelineJob(jobName) {
     definition {
         cpsScm {
             scm {
