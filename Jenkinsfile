@@ -1,6 +1,11 @@
 pipeline {
     agent any 
     stages{
+        stage('CleanWorkspace') {
+            steps {
+                cleanWs()
+            }
+        }
         stage('Maven Build'){
             steps {
             sh "git clone https://github.com/Sadashiv/maven"
