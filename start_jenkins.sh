@@ -1,8 +1,9 @@
 #!/bin/bash
 
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+cd $SCRIPTPATH
 JENKINS_LTS_VERSION=2.277.4
-JENKINS_PORT=8888
+JENKINS_PORT=8866
 
 #kill -SIGTERM `ps -aef | grep 'jenkins' | grep -v grep | awk '{print $2}'`
 
