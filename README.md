@@ -3,13 +3,15 @@ Jenkins Installation
 
 Prerequiste: Install jdk/jre 1.8
 
-1. Jenkins should be running
+1. Clone git repo: https://github.com/Sadashiv/jenkins
+
+2. run ./start_jenkins.sh
 
 2. Install plugin
    Job DSL
    XML Job to Job DSL(Convert normal job to DSL code)
 
-api to access: http://127.0.0.1:8888/plugin/job-dsl/api-viewer/index.html
+api to access: http://127.0.0.1:8866/plugin/job-dsl/api-viewer/index.html
 Jenkins job api for each xml tag or activity: https://jenkinsci.github.io/job-dsl-plugin/
 
 
@@ -20,29 +22,27 @@ sudo cp jenkins.service /lib/systemd/system/
 sudo systemctl enable jenkins.service
 sudo systemctl start jenkins.service
 
-###################################
-sun.java.command
-======================================================
-Deleting the objects
+Access in browser: http://127.0.0.1:8866/
 
-ls .git/objects/pack/
-pack-38ca2c173f154aa93a018d4bab87a4a9b484096a.idx  pack-38ca2c173f154aa93a018d4bab87a4a9b484096a.pack
+Create seed job
+Seed Job: That depends on context. Jenkins itself does not provide "seed jobs".
 
-git verify-pack -v .git/objects/pack/pack-7b03cc896f31b2441f3a791ef760bd28495697e6.idx | sort -k 3 -n | tail -10
+Update git repo in seed job: https://github.com/Sadashiv/jenkins(Select branch name: jenkins)
 
-f9eab765b63254acc2698f8bd9b6b852a76380f0 blob   6979 670 156343
-7647cbbe10e7638d71079fd8f6ca295e89941a51 blob   10107 3726 68483
-050c88e2b648e1f9622f56cdff28005b8724fadd blob   12302 4462 186227
-3b550a4b0111d8befa6272cd5d11ed8a7f545779 blob   13596 4808 171955
-3280709c2f835e562b99a75180e858f450a429aa blob   15167 6558 118383
-ee8eb338da07df093cd2cfb4cb09337b6031bc36 blob   15335 6243 128430
-24fa51b794dc3dce8982baf21343f09c66df1261 blob   16977 5795 160572
-79e2d4ec85799442dd158343d351fd3c3be112af blob   19201 5188 93224
-e1b1eaf0e38faf452366216d61ff49895a5579ab blob   35858 6332 134997
-2e1b5e14b92fe61e02df94ab165c8aab6c06c9cb blob   56148 15960 190689
+Build step-> Process job DSLs and select Look fulesystem -> *.groovy 
+![Centralized Version Control Systems](images/dsl_job_config.png)
 
-git rev-list --objects --all | grep 2e1b5e14b92fe61e02df94ab165c8aab6c06c9cb
-git filter-branch --index-filter 'git rm --cached --ignore-unmatch *.pdf' -- --all
-rm -Rf .git/refs/original
-rm -Rf .git/logs/
-git gc --aggressive --prune=now
+Save and build job will see below job generated
+
+Warning: ERROR: script not yet approved for use
+http://127.0.0.1:8866/scriptApproval/
+Go head and approve
+
+
+Run seed Job to generate the jobs
+![Centralized Version Control Systems](images/job_generated.png)
+
+Dashboard of jobs generated and can be run these jobs
+![Centralized Version Control Systems](images/jobs_dashboard.png)
+
+
