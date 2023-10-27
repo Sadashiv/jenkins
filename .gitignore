@@ -27,4 +27,4 @@ jenkins.install.UpgradeWizard.state
 secret.key.not-so-secret
 secrets/
 workspace/
-
+lib/*
