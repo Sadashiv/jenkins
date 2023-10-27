@@ -1,0 +1,23 @@
+import groovy.json.JsonSlurper
+
+def jsonSlurper = new JsonSlurper()
+
+def config = jsonSlurper.parse(new File('config.json'))
+
+config.os.each {
+
+println(it.ip)
+}
+println "config = $config"
+println("Welcome to groovy")
+
+
+pipelineJob('example') {
+    definition {
+        cpsScm {
+            scm {
+                git('https://github.com/jenkinsci/job-dsl-plugin.git')
+            }
+        }
+    }
+}
