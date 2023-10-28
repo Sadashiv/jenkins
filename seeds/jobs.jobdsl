@@ -31,7 +31,11 @@ config.os.each {
                 // Provides a cron -like feature to periodically execute this project.
                 cron {
                 spec("H * * * *")
+                }
             }
+            logRotator {
+                daysToKeep(5)
+                numToKeep(15)
             }
 
     }

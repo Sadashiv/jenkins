@@ -15,6 +15,7 @@ pipeline {
         stage('Deploy product'){
             steps {
             echo "Deploy product to desired server"
+            echo "Branch from parameter: ${params.branch}"
             }
         }
         stage('Selenium Test'){
