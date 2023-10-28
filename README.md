@@ -26,6 +26,7 @@ Access in browser: http://127.0.0.1:8866/
 
 Create seed job
 Seed Job: That depends on context. Jenkins itself does not provide "seed jobs".
+Disable script Approval-> Manage Jenkins->Configure System->disable scritp test
 
 Update git repo in seed job: https://github.com/Sadashiv/jenkins(Select branch name: jenkins)
 
@@ -44,5 +45,6 @@ Run seed Job to generate the jobs
 
 Dashboard of jobs generated and can be run these jobs
 ![Centralized Version Control Systems](images/jobs_dashboard.png)
+
 
 

@@ -3,21 +3,34 @@ import groovy.json.JsonSlurper
 def jsonSlurper = new JsonSlurper()
 
 def config = jsonSlurper.parse(new File('config.json'))
+def jobName
 
 config.os.each {
-
-println(it.ip)
-}
-println "config = $config"
-println("Welcome to groovy")
-
-
-pipelineJob('example') {
+    def jobaName = it.ip
+    pipelineJob(jobaName) {
     definition {
         cpsScm {
             scm {
                 git('https://github.com/jenkinsci/job-dsl-plugin.git')
             }
+            scriptPath('JenkinsFile')
+            lightweight(true)
+            //branch("master")
+           // credentials("sadashiv")
+            // id("github-id")
+             //   credentials("sadashiv")
         }
+
+        parameters {
+            stringParam("branch", 'master', "Welocme git branch")
+            }
+            triggers {
+                // Provides a cron -like feature to periodically execute this project.
+                cron {
+                spec("H * * * *")
+            }
+            }
+
     }
+}
 }
