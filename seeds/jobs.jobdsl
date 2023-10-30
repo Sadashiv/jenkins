@@ -3,11 +3,42 @@ import groovy.json.JsonSlurper
 def jsonSlurper = new JsonSlurper()
 
 def config = jsonSlurper.parse(new File('config.json'))
-def jobName
+def ipfolder = "IP_JOBSS"
+def ipview = "IP_JOBSS"
+
+listView(ipfolder) {
+description('All new jobs for testlist')
+filterBuildQueue()
+filterExecutors()
+jobs {
+    name('sada') 
+    regex(/192.168/)
+
+}
+    columns {
+    status()
+    weather()
+    name()
+    lastSuccess()
+    lastFailure()
+    lastDuration()
+    buildButton()
+}
+}
+
+//Create folder function
+def createFolder(folders){
+    folder(folders) {}
+    folder("${folders}/${folders}") {}
+}
 
 config.os.each {
-    def jobaName = it.ip
-    pipelineJob(jobaName) {
+    def folders = ipfolder
+    println(folders)
+    createFolder(folders)
+    //Create job insdie the folder
+    def jobName = "${ipfolder}/"+(it.ip)
+    pipelineJob(jobName) {
     definition {
         cpsScm {
             scm {
@@ -41,3 +72,4 @@ config.os.each {
     }
   }
 }
+
