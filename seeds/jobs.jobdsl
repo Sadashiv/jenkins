@@ -54,21 +54,27 @@ config.os.each {
             scriptPath('Jenkinsfile')
             lightweight(true)
         }
-
         parameters {
             stringParam("branch", 'master', "Welocme git branch")
-            }
             triggers {
                 // Provides a cron -like feature to periodically execute this project.
                 cron {
-                spec("H * * * *")
+                spec("H 0,12 * * *")
                 }
             }
             logRotator {
                 daysToKeep(5)
                 numToKeep(15)
             }
+            booleanParam('RUN_TESTS', true, 'uncheck to disable tests')
+            wHideParameterDefinition {
+                name("HIDDEN_PARAM")
+                defaultValue("HELLO")
+                description("This is hidden parama")
+            }
+            choiceParam('itChoiceParama', ['choice1 (default)', 'choice 2', 'choice 3'], 'Choice param description')
 
+    }
     }
   }
 }
