@@ -55,6 +55,17 @@ config.os.each {
             lightweight(true)
         }
         parameters {
+            properties {
+                disableConcurrentBuilds()
+                customIcon('jobs_dashboard.png')
+                sidebarLinks {
+                    link('https://github.com/Sadashiv', 'GITHUB', 'images/jobs_dashboard.png')
+                }
+                rebuild {
+                    rebuildDisabled(rebuildDisabled = true)
+                }
+            }
+
             stringParam("branch", 'master', "Welocme git branch")
             triggers {
                 // Provides a cron -like feature to periodically execute this project.
