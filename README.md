@@ -46,5 +46,5 @@ Run seed Job to generate the jobs
 Dashboard of jobs generated and can be run these jobs
 ![Centralized Version Control Systems](images/jobs_dashboard.png)
 
-
+PLugins
 
