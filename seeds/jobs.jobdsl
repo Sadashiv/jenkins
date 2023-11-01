@@ -41,6 +41,7 @@ config.os.each {
     //Create job insdie the folder
     def jobName = "${ipfolder}/"+(it.ip)
     pipelineJob(jobName) {
+
     definition {
         cpsScm {
             scm {
@@ -103,12 +104,17 @@ config.os.each {
     println(folders)
     def jobName = it.ip
     freeStyleJob(jobName) {
+        label('master')
+        wrappers {
+            colorizeOutput()
+            timestamps()
+            preBuildCleanup()
+        }
         logRotator(-1, 10)
             scm {
                  git('https://github.com/Sadashiv/jenkins', 'jenkins')
         }
         parameters {
-
             properties {
                 disableConcurrentBuilds()
                 customIcon('jobs_dashboard.png')
@@ -146,17 +152,41 @@ config.os.each {
                 githubPush()
             }
             steps {
-                shell('echo Hello World!')
+                shell('echo Hello World! && exit 1')
             }
             /*steps {
                 batch('echo Hello World!')
             }*/
-            steps {
+            /*steps {
                 gradle('clean build')
             }
             steps {
                 maven('clean')
-            }
+            }*/
+            publishers {
+                    extendedEmail {
+                        recipientList('sadamsrit@gmail.com')
+                        defaultSubject('DSL script through job email')
+                        defaultContent('default')
+                        contentType('text/html')
+                        triggers {
+                            beforeBuild()
+                            stillUnstable {
+                                subject('DSL script through job email')
+                                content('Hello, Welcome to email')
+                                sendTo {
+                                    developers()
+                                    requester()
+                                    culprits()
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+
+
         }
     }
 }
