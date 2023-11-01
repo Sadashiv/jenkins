@@ -32,6 +32,8 @@ def createFolder(folders){
     folder("${folders}/${folders}") {}
 }
 
+
+//This is logic for pipelinejpob
 config.os.each {
     def folders = ipfolder
     println(folders)
@@ -59,7 +61,10 @@ config.os.each {
                 disableConcurrentBuilds()
                 customIcon('jobs_dashboard.png')
                 sidebarLinks {
-                    link('https://github.com/Sadashiv', 'GITHUB', 'images/jobs_dashboard.png')
+                    //Built in image
+                    link('https://github.com/Sadashiv', 'JIRA', 'notepad.png')
+                    link('https://github.com/Sadashiv', 'JIRA', 'userContent/github.png')
+                    link('https://google.com/', 'Google', 'userContent/google.png')
                 }
                 rebuild {
                     rebuildDisabled(rebuildDisabled = true)
@@ -90,3 +95,68 @@ config.os.each {
   }
 }
 
+
+//This is configuration for freestylejob
+
+config.os.each {
+    def folders = ipfolder
+    println(folders)
+    def jobName = it.ip
+    freeStyleJob(jobName) {
+        logRotator(-1, 10)
+            scm {
+                 git('https://github.com/Sadashiv/jenkins', 'jenkins')
+        }
+        parameters {
+
+            properties {
+                disableConcurrentBuilds()
+                customIcon('jobs_dashboard.png')
+                sidebarLinks {
+                    //Built in image
+                    link('https://github.com/Sadashiv', 'JIRA', 'notepad.png')
+                    link('https://github.com/Sadashiv', 'JIRA', 'userContent/github.png')
+                    link('https://google.com/', 'Google', 'userContent/google.png')
+                }
+                rebuild {
+                    rebuildDisabled(rebuildDisabled = true)
+                }
+            }
+
+            stringParam("branch", 'master', "Welocme git branch")
+            choiceParam('itChoiceParama', ['choice1 (default)', 'choice 2', 'choice 3'], 'Choice param description')
+            triggers {
+                // Provides a cron -like feature to periodically execute this project.
+                cron {
+                    spec("H 0,12 * * *")
+                }
+            }
+            logRotator {
+                daysToKeep(5)
+                numToKeep(15)
+            }
+            booleanParam('RUN_TESTS', true, 'uncheck to disable tests')
+            wHideParameterDefinition {
+                name("HIDDEN_PARAM")
+                defaultValue("HELLO")
+                description("This is hidden parama")
+            }
+
+            triggers {
+                githubPush()
+            }
+            steps {
+                shell('echo Hello World!')
+            }
+            /*steps {
+                batch('echo Hello World!')
+            }*/
+            steps {
+                gradle('clean build')
+            }
+            steps {
+                maven('clean')
+            }
+        }
+    }
+}
