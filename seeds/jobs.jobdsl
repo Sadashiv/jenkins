@@ -64,9 +64,7 @@ config.os.each {
                 customIcon('jobs_dashboard.png')
                 sidebarLinks {
                     //Built in image
-                    link('https://github.com/Sadashiv', 'JIRA', 'notepad.png')
-                    link('https://github.com/Sadashiv', 'JIRA', 'userContent/github.png')
-                    link('https://google.com/', 'Google', 'userContent/google.png')
+                    link('https://github.com/Sadashiv', 'GitHub', 'userContent/github.png')
                 }
                 rebuild {
                     rebuildDisabled(rebuildDisabled = true)
@@ -123,9 +121,7 @@ config.os.each {
                 customIcon('jobs_dashboard.png')
                 sidebarLinks {
                     //Built in image
-                    link('https://github.com/Sadashiv', 'JIRA', 'notepad.png')
-                    link('https://github.com/Sadashiv', 'JIRA', 'userContent/github.png')
-                    link('https://google.com/', 'Google', 'userContent/google.png')
+                    link('https://github.com/Sadashiv', 'GitHub', 'userContent/github.png')
                 }
                 rebuild {
                     rebuildDisabled(rebuildDisabled = true)

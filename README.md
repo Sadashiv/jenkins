@@ -26,7 +26,6 @@ Access in browser: http://127.0.0.1:8866/
 
 Create seed job
 Seed Job: That depends on context. Jenkins itself does not provide "seed jobs".
-Disable script Approval-> Manage Jenkins->Configure System->disable scritp test
 
 Update git repo in seed job: https://github.com/Sadashiv/jenkins(Select branch name: jenkins)
 
@@ -38,7 +37,9 @@ Save and build job will see below job generated
 Warning: ERROR: script not yet approved for use
 http://127.0.0.1:8866/scriptApproval/
 Go head and approve
+or
 
+Disable script Approval-> Manage Jenkins->Configure System->disable scritp test
 
 Run seed Job to generate the jobs
 ![Centralized Version Control Systems](images/job_generated.png)
@@ -47,4 +48,8 @@ Dashboard of jobs generated and can be run these jobs
 ![Centralized Version Control Systems](images/jobs_dashboard.png)
 
 
-
+ToDo
+====
+Jenkins Agent creation
+Create groovy code to run for different stages with activity
+Develop the utility to create different jobs

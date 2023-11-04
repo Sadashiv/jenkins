@@ -1,7 +1,12 @@
 custom-job-icon
-hiddenparmaeter
-genericwebhook trigger
+ansicolor
+side-bar-link
+Rebuilder
+Hidden Parmaeter
+genericwebhook
+List Git Branches Parameter
 timer
 ansicolor
+
 
 

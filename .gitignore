@@ -14,7 +14,6 @@ jobs/
 plugins/
 *.xml.bak
 updates/
-userContent/
 var/
 war/
 logs/*
