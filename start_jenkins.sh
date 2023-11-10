@@ -21,6 +21,7 @@ then
      wget -c https://get.jenkins.io/war-stable/$JENKINS_LTS_VERSION/jenkins.war -P $SCRIPTPATH/downloads/$JENKINS_LTS_VERSION
 fi
 
+export GROOVY_TURN_OFF_JAVA_WARNINGS=true
 #/usr/bin/java -Dhudson.util.ProcessTree.disable=true -Dmail.smtp.localhost=smtp.gmail.comm -jar $SCRIPTPATH/downloads/$JENKINS_LTS_VERSION/jenkins.war --httpPort=8888 --logfile=$cwd/jenkins.log --daemon
 /usr/bin/java -jar $SCRIPTPATH/downloads/$JENKINS_LTS_VERSION/jenkins.war --httpPort=$JENKINS_PORT --logfile=$SCRIPTPATH/jenkins.log --daemon > /dev/null
 echo "/usr/bin/java -jar $SCRIPTPATH/downloads/$JENKINS_LTS_VERSION/jenkins.war --httpPort=$JENKINS_PORT --logfile=$SCRIPTPATH/jenkins.log --daemon > /dev/null"

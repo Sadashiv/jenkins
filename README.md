@@ -50,6 +50,8 @@ Dashboard of jobs generated and can be run these jobs
 
 ToDo
 ====
-Jenkins Agent creation
+Jenkins Agent creation, with private key
 Create groovy code to run for different stages with activity
 Develop the utility to create different jobs
+Generic trigger for jobs
+

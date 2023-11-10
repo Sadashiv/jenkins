@@ -3,9 +3,10 @@ import groovy.json.JsonSlurper
 def jsonSlurper = new JsonSlurper()
 
 def config = jsonSlurper.parse(new File('config.json'))
-def ipfolder = "IP_JOBSS"
-def ipview = "IP_JOBSS"
-def LABEL_NAME = "master"
+def ipfolder = "IP_JOB"
+def ipview = "IP_JOB"
+//By using final keyword varaible declared can't be modified
+final String LABEL_NAME = "master"
 
 listView(ipfolder) {
 description('All new jobs for testlist')
@@ -151,7 +152,7 @@ config.os.each {
                 githubPush()
             }
             steps {
-                shell('echo Hello World! && exit 1')
+                shell('echo Hello World!')
             }
             /*steps {
                 batch('echo Hello World!')
@@ -189,3 +190,52 @@ config.os.each {
         }
     }
 }
+
+
+
+//NonCPS
+/*@NonCPS
+def myFunction() {
+    throw new RuntimeException();
+}
+
+try {
+    myFunction();
+} catch (Exception e) {
+    echo "Caught";
+}
+
+
+@NonCPS
+def myFunction() {
+    throw new RuntimeException();
+}
+
+def mySecondFunction() {
+    try {
+        myFunction();
+    } catch (Exception e) {
+        echo "Caught";
+    }
+}
+
+mySecondFunction();
+*/
+
+/*
+@NonCPS
+def myFunction() {
+    throw new RuntimeException();
+}
+
+@NonCPS
+def mySecondFunction() {
+    try {
+        myFunction();
+    } catch (Exception e) {
+        echo "Caught";
+    }
+}
+
+mySecondFunction();
+*/
