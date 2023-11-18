@@ -27,3 +27,5 @@ secret.key.not-so-secret
 secrets/
 workspace/
 lib/*
+jenkins.install.InstallUtil.installingPlugins
+caches/

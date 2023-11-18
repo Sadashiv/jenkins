@@ -52,6 +52,6 @@ ToDo
 ====
 Jenkins Agent creation, with private key
 Create groovy code to run for different stages with activity
-Develop the utility to create different jobs
+Develop the utility to create different jobs #https://github.com/jenkinsci/job-dsl-plugin/wiki/Real-World-Examples
 Generic trigger for jobs
 
