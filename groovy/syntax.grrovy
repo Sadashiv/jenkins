@@ -1,0 +1,144 @@
+#!/usr/bin/env groovy
+println("Hello World")
+print("Hello World")
+println()
+
+class Person{
+
+    String greet(otherPerson){
+        "Hello ${otherPerson}\n"
+    }
+
+}
+
+Person p = new Person()
+print(p.greet("Sadashiv"))
+
+//Reserved keywords can be used for methods with quoted
+def "abstract"(){
+    println("abstract is reserved keyword")
+}
+this.abstract()
+
+def sada() {
+    println("Hello Sadashiv")
+}
+this.sada()
+sada()
+def map = [:] //Python dictionary empty [] makes list, [:] makes map
+map."Hello" = "Allowed"
+println(map)
+
+def checkStr="Sadashiv"
+
+def singleStr = 'Single String'
+def doubleStr = "Double String"
+def tripleStr = """Triple Quote $checkStr"""
+println(singleStr)
+println(singleStr)
+println(tripleStr)
+
+def strName = "String Interpolation"
+println "Hello this is ${strName}"
+assert "Hello this is ${strName}"=="Hello this is String Interpolation"
+
+def sParameterLessClosure = "1 + 2 == ${-> 3}"
+assert sParameterLessClosure == '1 + 2 == 3'
+
+def sOneParamClosure = "1 + 2 == ${ w -> w << 3}"
+assert sOneParamClosure == '1 + 2 == 3'
+
+
+def color = 'blue'
+def interpolatedSlashy = /a ${color} car/
+
+assert interpolatedSlashy == 'a blue car'
+
+//Dollor slashy string
+def name = "Guillaume"
+def date = "April, 1st"
+
+def dollarSlashy = $/
+    Hello $name,
+    today we're ${date}.
+
+    $ dollar sign
+    $$ escaped dollar sign
+    \ backslash
+    / forward slash
+    $/ escaped forward slash
+    $$$/ escaped opening dollar slashy
+    $/$$ escaped closing dollar slashy
+/$
+
+def char1 = 'A' // 'A' as char
+println(char1)
+
+//Integral literals: byte, char, short, int,long(Primitive types)
+
+int i = 10
+assert i == 10
+//java.math.BigInteger(Infinite precision)
+
+//Binary Literal
+int bxInt = 0b10101111
+assert bxInt == 175
+
+//Octal literal
+int oxInt = 077
+assert oxInt == 63
+
+//Hexadecimal literal
+int hxInt = 0x77
+assert hxInt == 119
+
+//Decimal literals float f = 1.2, double d = 1.2, BigDecimal bd = 1.23455
+f = 1.2
+d = 1.4
+bd = 1.33333333333
+println(f)
+
+//Underscore in literal
+long creditCardNumber = 1234_5678_9012_3456L
+long socialSecurityNumbers = 999_99_9999L
+double monetaryAmount = 12_345_132.12
+
+//Power operator
+assert 2**3 instanceof Integer
+
+//Booleans
+def myBooleanVariable = true
+boolean untypedBooleanVar = false
+booleanField = true
+
+//Lists or ArrayList
+def numbers = [1,2,3,4,5, 'a', true]
+//We use coercion with the as operator to explicitly request a java.util.LinkedList implementation
+def arrayList = [1, 2, 3]
+assert arrayList instanceof java.util.ArrayList
+println(numbers)
+numbers[6] = 6
+println(numbers)
+numbers << 'appendlast'
+println(numbers)
+println(numbers[3,6])
+println(numbers[3..6])
+
+//Arrays type declration through coercion
+String [] arrStr = ['Sadashiv', 'Badagi']
+assert arrStr instanceof String[]
+
+def colors = [red: '#FF0000', green: '#00FF00', blue: '#0000FF'] 
+println(colors)
+println(colors['red'])
+println(colors.green)
+
+//Put key and value
+colors['pink'] = '#FF00FF'
+colors.yellow  = '#FFFF00'
+println(colors)
+
+def emptyMap = [:]
+
+def numbersMap = [1: 'one', 2: 'two']
+println(numbersMap)
